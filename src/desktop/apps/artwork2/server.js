@@ -10,7 +10,7 @@ const app = (module.exports = express())
 
 app.get("/artwork2/:artworkID*", adminOnly, async (req, res, next) => {
   try {
-    const { ServerApp, redirect, status, headTags } = await buildServerApp({
+    const { ServerApp, redirect, status } = await buildServerApp({
       routes,
       url: req.url,
       context: buildServerAppContext(req, res),
@@ -28,12 +28,7 @@ app.get("/artwork2/:artworkID*", adminOnly, async (req, res, next) => {
         styledComponents: true,
       },
       blocks: {
-        head: () => (
-          <>
-            {headTags}
-            <Meta />
-          </>
-        ),
+        head: Meta,
         body: ServerApp,
       },
       locals: {

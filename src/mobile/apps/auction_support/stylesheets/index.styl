@@ -90,18 +90,25 @@ checkbox-size = 20px
 
   .credit-card-input-section
     margin-top 10px
+  .card-expiration
+    .month, .year
+      width 49%
+      display inline-block
+      vertical-align top
+   .month
+     margin-right 2%
 
   .registration-form-section
     margin-top 20px
 
-  .postal-code.credit-card-input-section, .region.credit-card-input-section
+  .card-expiration.credit-card-input-section, .card-security-code.credit-card-input-section, .postal-code.credit-card-input-section, .region.credit-card-input-section
     display inline-block
     vertical-align top
 
   .postal-code.credit-card-input-section, .region.credit-card-input-section
     width 49%
 
-  .region.credit-card-input-section
+  .card-expiration.credit-card-input-section, .region.credit-card-input-section
     margin-right 2%
 
   .avant-garde-box-button
@@ -121,15 +128,11 @@ checkbox-size = 20px
   .error
     color red-color
 
-#card-element
-  border 2px solid light-gray-border-color
-  box-sizing border-box
-  width 100%
-  padding 10px
-  height 44px
-
-#card-element.StripeElement--focus
-  border-color highlight-color
-  outline none
-
+  .card-security-code.credit-card-input-section
+    width 36%
+    display block
+    input
+      padding 10px 0 11px 0
+  .card-expiration
+    width 62%
 
