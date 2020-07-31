@@ -135,6 +135,7 @@ export const Details: FC<DetailsProps> = ({
         "calc(100% - 145px)",
         "100%",
       ]}
+      mt={[0, 0, "85px"]}
       flexShrink={0}
       position={["absolute", "absolute", "absolute", "absolute", "static"]}
       right={[0, 0, 0, 0, "auto"]}

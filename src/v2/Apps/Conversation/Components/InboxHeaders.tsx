@@ -14,7 +14,6 @@ import {
   color,
 } from "@artsy/palette"
 import { RouterLink } from "v2/Artsy/Router/RouterLink"
-import { Media } from "v2/Utils/Responsive"
 import { DETAIL_BOX_ANIMATION } from "./Details"
 
 interface BorderedFlexProps extends FlexProps {
@@ -23,7 +22,6 @@ interface BorderedFlexProps extends FlexProps {
 const BorderedFlex = styled(Flex)<BorderedFlexProps>`
   ${props =>
     props.bordered ? `border-right: 1px solid ${color("black10")};` : ""}
-  height: 100%;
 `
 
 const ConversationHeaderContainer = styled(Flex)`
@@ -43,7 +41,7 @@ interface DetailsProps {
 interface ConversationHeaderProps extends DetailsProps {
   partnerName: string
 }
-export const ConversationHeader: FC<ConversationHeaderProps> = ({
+export const MobileConversationHeader: FC<ConversationHeaderProps> = ({
   partnerName,
   showDetails,
   setShowDetails,
@@ -70,43 +68,45 @@ export const ConversationHeader: FC<ConversationHeaderProps> = ({
   )
 }
 
-export const EmptyInboxHeader: FC<{}> = () => {
+export const DesktopConversationHeader: FC<Partial<
+  ConversationHeaderProps
+>> = props => {
   return (
-    <Flex
-      height="85px"
-      px={2}
-      py={1}
-      alignItems="flex-end"
-      borderBottom={`1px solid ${color("black10")}`}
-    >
-      <Sans size="6" weight="medium">
-        Inbox
-      </Sans>
-    </Flex>
-  )
-}
-
-interface MobileInboxHeaderProps extends FlexProps, DetailsProps {}
-
-export const MobileInboxHeader: FC<Partial<MobileInboxHeaderProps>> = props => {
-  return (
-    <Flex
-      justifyContent="flex-end"
+    <BorderedFlex
+      bordered
       flexDirection="column"
+      width="100%"
+      justifyContent="flex-end"
       height="85px"
-      {...props}
     >
-      <Sans size="6" weight="medium" ml={1}>
-        Inbox
-      </Sans>
+      <Flex justifyContent="space-between">
+        <Box>
+          {props.partnerName ? (
+            <Sans size="4" ml={2}>
+              Conversation with {props.partnerName}
+            </Sans>
+          ) : (
+            <>{props.children}</>
+          )}
+        </Box>
+        <DetailIcon
+          showDetails={props.showDetails}
+          setShowDetails={props.setShowDetails}
+        />
+      </Flex>
       <Separator mt={1} />
-    </Flex>
+    </BorderedFlex>
   )
 }
 
 export const InboxHeader: FC<BorderedFlexProps> = props => {
   return (
-    <BorderedFlex justifyContent="flex-end" flexDirection="column" {...props}>
+    <BorderedFlex
+      height="85px"
+      justifyContent="flex-end"
+      flexDirection="column"
+      {...props}
+    >
       <Sans size="6" weight="medium" ml={1}>
         Inbox
       </Sans>
@@ -143,50 +143,6 @@ export const DetailsHeader: FC<DetailsHeaderProps> = props => {
       </Flex>
       <Separator mt={1} />
     </AnimatedFlex>
-  )
-}
-
-export const FullHeader: FC<Partial<ConversationHeaderProps>> = props => {
-  return (
-    <Flex
-      height="85px"
-      width="100%"
-      justifyContent="space-between"
-      alignItems="flex-end"
-    >
-      <InboxHeader width="375px" bordered flexShrink={0} />
-      <BorderedFlex
-        bordered
-        flexDirection="column"
-        width="100%"
-        justifyContent="flex-end"
-      >
-        <Flex justifyContent="space-between">
-          <Box>
-            {props.partnerName ? (
-              <Sans size="4" ml={2}>
-                Conversation with {props.partnerName}
-              </Sans>
-            ) : (
-              <>{props.children}</>
-            )}
-          </Box>
-          <DetailIcon
-            showDetails={props.showDetails}
-            setShowDetails={props.setShowDetails}
-          />
-        </Flex>
-        <Separator mt={1} />
-      </BorderedFlex>
-      <Flex flexShrink={0} height="100%" alignItems="flex-end">
-        <Media greaterThan="lg">
-          <DetailsHeader
-            showDetails={props.showDetails}
-            setShowDetails={props.setShowDetails}
-          />
-        </Media>
-      </Flex>
-    </Flex>
   )
 }
 

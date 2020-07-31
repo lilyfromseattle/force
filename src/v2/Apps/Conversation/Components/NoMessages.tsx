@@ -1,12 +1,12 @@
 import { Box, Button, Flex, Sans } from "@artsy/palette"
 import { RouterLink } from "v2/Artsy/Router/RouterLink"
-import { EmptyInboxHeader } from "./InboxHeaders"
+import { InboxHeader } from "./InboxHeaders"
 import React from "react"
 
 export const NoMessages = () => {
   return (
     <Box>
-      <EmptyInboxHeader />
+      <InboxHeader />
       <Flex
         flexDirection="column"
         justifyContent="center"

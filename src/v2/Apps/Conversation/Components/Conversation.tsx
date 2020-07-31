@@ -1,7 +1,7 @@
 import { Box, Flex, Image, Link, Sans, Spacer, color } from "@artsy/palette"
 import { Conversation_conversation } from "v2/__generated__/Conversation_conversation.graphql"
 import { DateTime } from "luxon"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import {
   RelayProp,
   RelayRefetchProp,
@@ -13,6 +13,11 @@ import { Reply } from "./Reply"
 import { TimeSince, fromToday } from "./TimeSince"
 import { UpdateConversation } from "../Mutation/UpdateConversationMutation"
 import styled from "styled-components"
+import {
+  DesktopConversationHeader,
+  MobileConversationHeader,
+} from "./InboxHeaders"
+import { Media } from "v2/Utils/Responsive"
 
 interface ItemProps {
   item: Conversation_conversation["items"][0]["item"]
@@ -139,6 +144,8 @@ export interface ConversationProps {
   conversation: Conversation_conversation
   relay: RelayProp
   refetch: RelayRefetchProp["refetch"]
+  showDetails: boolean
+  setShowDetails: () => void
 }
 
 const Conversation: React.FC<ConversationProps> = props => {
@@ -216,24 +223,40 @@ const Conversation: React.FC<ConversationProps> = props => {
   })
 
   return (
-    <NoScrollFlex flexDirection="column" width="100%">
-      <MessageContainer>
-        <Box pb={[6, 6, 6, 0]}>
-          <Spacer mt={["75px", "75px", 2]} />
-          <Flex flexDirection="column" width="100%" px={1}>
-            {inquiryItemBox}
-            {messageGroups}
-            <Box ref={bottomOfPage}></Box>
-          </Flex>
-        </Box>
-      </MessageContainer>
-      <Reply
-        onScroll={scrollToBottom}
-        conversation={conversation}
-        refetch={props.refetch}
-        environment={relay.environment}
-      />
-    </NoScrollFlex>
+    <>
+      <NoScrollFlex flexDirection="column" width="100%">
+        <Media between={["xs", "md"]}>
+          <MobileConversationHeader
+            showDetails={props.showDetails}
+            setShowDetails={props.setShowDetails}
+            partnerName={props.conversation.to.name}
+          />
+        </Media>
+        <Media greaterThanOrEqual="md">
+          <DesktopConversationHeader
+            showDetails={props.showDetails}
+            setShowDetails={props.setShowDetails}
+            partnerName={props.conversation.to.name}
+          />
+        </Media>
+        <MessageContainer>
+          <Box pb={[6, 6, 6, 0]}>
+            <Spacer mt={["75px", "75px", 2]} />
+            <Flex flexDirection="column" width="100%" px={1}>
+              {inquiryItemBox}
+              {messageGroups}
+              <Box ref={bottomOfPage}></Box>
+            </Flex>
+          </Box>
+        </MessageContainer>
+        <Reply
+          onScroll={scrollToBottom}
+          conversation={conversation}
+          refetch={props.refetch}
+          environment={relay.environment}
+        />
+      </NoScrollFlex>
+    </>
   )
 }
 
