@@ -38,9 +38,11 @@ interface DetailsProps {
   showDetails: boolean
   setShowDetails: (boolean) => void
 }
+
 interface ConversationHeaderProps extends DetailsProps {
   partnerName: string
 }
+
 export const MobileConversationHeader: FC<ConversationHeaderProps> = ({
   partnerName,
   showDetails,

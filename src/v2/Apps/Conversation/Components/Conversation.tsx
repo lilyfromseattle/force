@@ -1,7 +1,7 @@
 import { Box, Flex, Image, Link, Sans, Spacer, color } from "@artsy/palette"
 import { Conversation_conversation } from "v2/__generated__/Conversation_conversation.graphql"
 import { DateTime } from "luxon"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import {
   RelayProp,
   RelayRefetchProp,
@@ -232,7 +232,7 @@ const Conversation: React.FC<ConversationProps> = props => {
             partnerName={props.conversation.to.name}
           />
         </Media>
-        <Media greaterThanOrEqual="md">
+        <Media greaterThan="md">
           <DesktopConversationHeader
             showDetails={props.showDetails}
             setShowDetails={props.setShowDetails}
