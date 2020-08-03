@@ -35,21 +35,24 @@
   resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-1.0.13.tgz#4bbbda274e74e0d63b471a36d72360d33d571598"
   integrity sha512-Gg/43i30aIqkryVE6eLhNe4j9G1fk41qIJqYfj/b+mv3bYCl8H9HSaedcM7exuh0RlexZGLMD2aYnugiobrpxQ==
 
-"@artsy/gemup@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@artsy/gemup/-/gemup-0.0.3.tgz#0397a472bb69432dab3d2d66ca30556815aa96e7"
-  integrity sha512-W///stXDTz3jSQw8UtT0BClVk4DLOsVp7a8v12efsEZvrZNT+85YBqPWq2DP1EX3ILZR1hGZhbKr/Gl5uti56Q==
+"@artsy/gemup@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@artsy/gemup/-/gemup-0.1.0.tgz#b1e25b2c225a0a457762791a456f7d075974fb7c"
+  integrity sha512-Ipzswe6djF3c1fbiZLnlX2XTUoOUHRFkkj7aQdJknabA6+/TCNYEt3f2GGd8TmjqC3dwc/PhoIyKfYJd8vAYdQ==
+  dependencies:
+    uuid "^8.3.0"
 
-"@artsy/palette@11.14.0":
-  version "11.14.0"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-11.14.0.tgz#a709ff9966f6cddabeae64d3e84041aeabb8c892"
-  integrity sha512-eyA5nB0awnHZIDVYbvHV/PwXbzRrv2nJx4jN+VBiIriZvIRKRlrkxjEonyzxORjLJD7mIp5rTW3NgGkQqrm4bQ==
+"@artsy/palette@11.15.0":
+  version "11.15.0"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-11.15.0.tgz#efc3bb2291f135200360ea61ba8ff37f38263396"
+  integrity sha512-YvRthWTBhRjuuWNqQiR8drZXBM7a1qgsyWEBb4bi8ktlARfiatR+oVTvEmdTuuKJOLoqt9Jud2wEycxsOsFcyQ==
   dependencies:
     "@styled-system/theme-get" "^5.1.2"
     babel-plugin-styled-components "^1.10.0"
     d3-interpolate "^1.3.2"
     d3-shape "^1.3.5"
     luxon "^1.15"
+    proportional-scale "^4.0.0"
     rc-slider "^8.6.2"
     react-lazy-load-image-component "1.5.0"
     react-live "^1.12.0"
@@ -68,12 +71,13 @@
   dependencies:
     passport-strategy "1.x.x"
 
-"@artsy/passport@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@artsy/passport/-/passport-1.3.0.tgz#7f71745cef8f7a4fd649e0f003abf6e29942a287"
-  integrity sha512-myHNuOWwRgek+mYJgM9hwk9AzXT1N2MDUIUJ4oqS6KLbtGMzvMmoh0V/fGN8aCoMTj8k5uDxlk1tRSlJ39OeZw==
+"@artsy/passport@1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@artsy/passport/-/passport-1.3.2.tgz#2393f6130808eb7432278126ac35666f028bf3e0"
+  integrity sha512-+t1YSvMbyCyeRC+Td/h6E7fN1Q6Y69bwG9rhqysadfsAQ6Stsqpbd68ZUWXMAN+pDcCqh8mev/DhvsLM5BfSJQ==
   dependencies:
     "@artsy/passport-local-with-otp" "^0.3.0"
+    "@artsy/xapp" "^1.0.6"
     "@nicokaiser/passport-apple" "^0.2.1"
     analytics-node "^2.1.0"
     async "^1.5.0"
@@ -92,10 +96,10 @@
   resolved "https://registry.yarnpkg.com/@artsy/react-html-parser/-/react-html-parser-3.0.2.tgz#6213d662441acf0bd8c9ee953aa77ac8d9cf1cdd"
   integrity sha512-FXiRSqfSvwpz/QgwaqFvjJsbDmo9qMGpvUp/0p1V6muaJbGnfxkTSxAYWmYlFst6bmjhVxCYKxvgQhEVE03Wfg==
 
-"@artsy/reaction@26.53.0":
-  version "26.53.0"
-  resolved "https://registry.yarnpkg.com/@artsy/reaction/-/reaction-26.53.0.tgz#61cbeecedfba4b66256b68f427e7b7e094231f57"
-  integrity sha512-9/rUEas6sc+l4wuEwiozv7KcU/pGPQ+ujO9u+y0k/t3y4tXXYG04EQGlDmcPGgSFwbrlxqivLz0zkCRZMXl/yw==
+"@artsy/reaction@26.54.0":
+  version "26.54.0"
+  resolved "https://registry.yarnpkg.com/@artsy/reaction/-/reaction-26.54.0.tgz#369584721a1e0c59460096019633b83da230f850"
+  integrity sha512-KtDTaFJ2FcQr66JttbjhDYqiHdwVD/fAjkX1IUeRL+EW6AVPKcDCVQkAvwU3yN2bZqHfw9FS5Z1fje5KKT1G/Q==
   dependencies:
     "@artsy/detect-responsive-traits" "^0.0.5"
     "@artsy/fresnel" "^1.0.13"
@@ -167,6 +171,13 @@
   dependencies:
     consolidate "^0.14.5"
     lodash "^4.17.11"
+
+"@artsy/xapp@1.0.6", "@artsy/xapp@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@artsy/xapp/-/xapp-1.0.6.tgz#7aa62f2fdb3defd2634b3ce24a2932159daa2442"
+  integrity sha512-HvVHokBkSg73p9CspnPnNLlZwINgNA/tJ1I5wfmMGXi4hdb9K+35CNLT+rByz4dWXmtA3RJcfzCFQknejEObGg==
+  dependencies:
+    superagent "^1.2.0"
 
 "@babel/cli@7.0.0":
   version "7.0.0"
@@ -5401,12 +5412,6 @@ artsy-morgan@artsy/artsy-morgan:
   dependencies:
     chalk "^1.1.3"
     morgan "^1.8.1"
-
-artsy-xapp@artsy/artsy-xapp:
-  version "1.0.4"
-  resolved "https://codeload.github.com/artsy/artsy-xapp/tar.gz/cbc3db68469054ab13bfbffe68edda422a0972bb"
-  dependencies:
-    superagent "^1.2.0"
 
 asap@~1.0.0:
   version "1.0.0"
@@ -17420,6 +17425,11 @@ property-information@^5.0.0:
   dependencies:
     xtend "^4.0.0"
 
+proportional-scale@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/proportional-scale/-/proportional-scale-4.0.0.tgz#888ecdb1e5e710645601bc4edc73d619bca28ff7"
+  integrity sha512-QW0HeiudSHjBQvGnJ35W/gQYaOP09gFSf+xsYSfMYE1DQ+g26aKRN0Hlvce06WeARCUQSlLE7a+jFVMN5feB4Q==
+
 proxy-addr@~2.0.4:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.5.tgz#34cbd64a2d81f4b1fd21e76f9f06c8a45299ee34"
@@ -22099,6 +22109,11 @@ uuid@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
   integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
+
+uuid@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.0.tgz#ab738085ca22dc9a8c92725e459b1d507df5d6ea"
+  integrity sha512-fX6Z5o4m6XsXBdli9g7DtWgAx+osMsRRZFKma1mIUsLCz6vRvv+pz5VNbyu9UEDzpMWulZfvpgb/cmDXVulYFQ==
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"
