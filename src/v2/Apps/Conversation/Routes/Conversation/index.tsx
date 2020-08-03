@@ -11,10 +11,6 @@ import React, { useContext, useState } from "react"
 import { RelayRefetchProp, createRefetchContainer, graphql } from "react-relay"
 import { userHasLabFeature } from "v2/Utils/user"
 import { Media } from "v2/Utils/Responsive"
-import {
-  ConversationHeader,
-  FullHeader,
-} from "v2/Apps/Conversation/Components/InboxHeaders"
 import { DetailsFragmentContainer as Details } from "../../Components/Details"
 import styled from "styled-components"
 interface ConversationRouteProps {

@@ -18,6 +18,11 @@ const Container = styled(Box)`
   `};
 `
 
+const FixedInboxHeader = styled(InboxHeader)`
+  position: fixed;
+  background: white;
+`
+
 interface ConversationsProps {
   me: Conversations_me
   relay: RelayRefetchProp
