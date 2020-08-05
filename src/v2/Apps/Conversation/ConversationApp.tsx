@@ -8,7 +8,6 @@ import { Title } from "react-head"
 import { createFragmentContainer, graphql } from "react-relay"
 import { Flex, Spinner, breakpoints } from "@artsy/palette"
 import { debounce } from "lodash"
-import { Media } from "v2/Utils/Responsive"
 import { NoMessages } from "./Components/NoMessages"
 
 interface ConversationAppProps {

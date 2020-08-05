@@ -7,7 +7,7 @@ import styled from "styled-components"
 import { InboxHeader } from "./InboxHeaders"
 
 const Container = styled(Box)`
-  height: 100%;
+  height: calc(100% - 85px);
   overflow-y: auto;
   overflow-x: hidden;
   border-bottom: 30px solid ${color("white100")};
@@ -16,11 +16,6 @@ const Container = styled(Box)`
     border-right: none;
     border-bottom: none;
   `};
-`
-
-const FixedInboxHeader = styled(InboxHeader)`
-  position: fixed;
-  background: white;
 `
 
 interface ConversationsProps {

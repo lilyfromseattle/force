@@ -232,7 +232,7 @@ const Conversation: React.FC<ConversationProps> = props => {
             partnerName={props.conversation.to.name}
           />
         </Media>
-        <Media greaterThan="md">
+        <Media greaterThanOrEqual="md">
           <DesktopConversationHeader
             showDetails={props.showDetails}
             setShowDetails={props.setShowDetails}
